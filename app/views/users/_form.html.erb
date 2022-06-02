@@ -1,0 +1,49 @@
+<%= form_with model:@user, local:true do |form| %>
+ 
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> prohibited
+        this user from being saved:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name, class: 'form-control col-md-6' %>
+  </p>
+ 
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email, class: 'form-control col-md-6' %>
+  </p>
+
+   <p>
+    <%= form.label :role %><br>
+    <%= form.select :role, [['vet', 'vet'], ['owner', 'owner']], class: 'form-control col-md-6' %>
+  </p>
+
+   <p>
+    <%= form.label :password %><br>
+    <%= form.password_field :password, class: 'form-control col-md-6' %>
+  </p>
+
+  <p>
+    <%= form.label :password_confirmtion %><br>
+    <%= form.password_field :password_confirmation, class: 'form-control col-md-6' %>
+  </p>
+
+   
+ 
+  <p>
+    <%= form.submit class: 'btn btn-outline-success' %> | <%= link_to 'Back', users_path ,class: 'btn btn-outline-info'%> 
+  </p>
+ 
+<% end %>

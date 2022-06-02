@@ -1,0 +1,35 @@
+
+<div class="mt-5">
+<%= form_with model:@user, url: authenticate_path, local:true do |form| %>
+ 
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> prohibited
+        this user from being saved:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email, class: 'form-control col-md-6' %>
+  </p>
+
+   <p>
+    <%= form.label :password %><br>
+    <%= form.password_field :password, class: 'form-control col-md-6' %>
+  </p>
+
+  <p>
+    <%= form.submit "Login", class: 'btn btn-outline-success' %> | <%= link_to 'Back', users_path ,class: 'btn btn-outline-info'%> 
+  </p>
+ 
+<% end %>
+</div>

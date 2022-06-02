@@ -1,0 +1,28 @@
+<div class="jumbotron jumbotron-fluid mt-5">
+  <div class="container">
+    <h1 class="display-4">Users List</h1>
+    <p class="lead"></p>
+  </div>
+</div>
+
+<%= link_to 'Create New User', new_user_path, class: 'btn btn-outline-success'%>
+
+<table class="table mt-5">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user["name"]%></td>
+      <td><%= user["email"]%></td>
+      <td><%= user["role"]%></td>
+    </tr>
+    <% end %>
+  
+  </tbody>
+</table>

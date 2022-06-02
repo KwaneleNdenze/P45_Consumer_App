@@ -1,0 +1,36 @@
+<%= form_with model:@appointment, local:true do |form| %>
+ 
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@appointment.errors.count, "error") %> prohibited
+        this appointment from being saved:
+      </h2>
+      <ul>
+        <% @appointment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <p>
+    
+    <%= form.number_field :vet_id, value: params[:vet_id], type:'hidden' %>
+  </p>
+
+  <p>
+    <%= form.number_field :pet_id, value: params[:id], type:'hidden' %>
+  </p>
+
+  <p>
+    <%= form.label :date %><br>
+    <%= form.date_field :date, class: 'form-control col-md-6' %>
+  </p>
+ 
+  <p>
+    <%= form.submit class: 'btn btn-md btn-outline-success'%> | <%= link_to "Back", pets_path, class: 'btn btn-md btn-outline-info' %>
+  </p>
+ 
+<% end %>
+
+<% console %>

@@ -1,0 +1,31 @@
+<%= form_with model:@vet_registration, local:true do |form| %>
+ 
+  <% if @vet_registration.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@vet_registration.errors.count, "error") %> prohibited
+        this vet registration from being saved:
+      </h2>
+      <ul>
+        <% @@vet_registration.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <p>
+    <%= form.label :vet_id %><br>
+    <%= form.select :vet_id, @vets.collect { |v| [ v["name"], v["id"] ] }, class: 'form-control col-md-6' %>
+  </p>
+
+  <p>
+    <%= form.number_field :pet_id, value: params[:id], type:'hidden' %>
+  </p>
+ 
+  <p>
+    <%= form.submit class: 'btn btn-md btn-outline-success'%> | <%= link_to "Back", pets_path, class: 'btn btn-md btn-outline-info' %>
+  </p>
+ 
+<% end %>
+
+<% console %>

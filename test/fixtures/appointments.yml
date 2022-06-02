@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  pet: one
+  vet_id: 1
+  date: MyString
+
+two:
+  user: two
+  pet: two
+  vet_id: 1
+  date: MyString

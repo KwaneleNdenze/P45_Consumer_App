@@ -1,0 +1,2 @@
+module VetRegistrationsHelper
+end
